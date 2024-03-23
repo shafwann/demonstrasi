@@ -21,4 +21,4 @@ Route::get('/', [Mahasiswa::class, 'index']);
 Route::get('/admin', [Mahasiswa::class, 'admin']);
 Route::post('/admin/tambah-mahasiswa', [Mahasiswa::class, 'tambahMahasiswa']);
 Route::get('/admin/hapus-mahasiswa/{id}', [Mahasiswa::class, 'hapusMahasiswa']);
-Route::get('/admin/edit-mahasiswa/{id}', [Mahasiswa::class, 'editMahasiswa']);
+Route::put('/admin/edit-mahasiswa/{id}', [Mahasiswa::class, 'editMahasiswa']);

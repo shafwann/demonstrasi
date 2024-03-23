@@ -96,13 +96,28 @@ class Mahasiswa extends Controller
         }
     }
 
-    public function editMahasiswa($id)
+    public function editMahasiswa($id, Request $request)
     {
         try {
             $mahasiswa = ModelsMahasiswa::find($id);
 
             if ($mahasiswa) {
-                return view('edit', ['mahasiswa' => $mahasiswa]);
+                $mahasiswa->update([
+                    'nim' => $request->nim,
+                    'nama' => $request->nama,
+                    'alamat' => $request->alamat,
+                    'tgl_lahir' => $request->tgl_lahir,
+                    'gender' => $request->gender,
+                    'usia' => $request->usia,
+                ]);
+
+                $pop = [
+                    'head' => 'Berhasil',
+                    'body' => 'Mahasiswa Telah Diedit',
+                    'status' => 'success'
+                ];
+
+                return redirect('/admin')->with('pop-up', $pop);
             } else {
                 throw new \Exception('Mahasiswa Tidak Ditemukan');
             }
