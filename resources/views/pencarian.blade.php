@@ -74,61 +74,11 @@
             <div class="main-content">
                 {{-- STATISTIK --}}
                 <section class="section">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon" style="background-color: #fc544b">
-                                    <i class="far fa-user"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Total Mahasiswa</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        {{ $totalMahasiswa }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon" style="background-color: #47c636">
-                                    <i class="far fa-user"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Mahasiswa Laki-Laki</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        {{ $totalMahasiswaLaki }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div class="card card-statistic-1">
-                                <div class="card-icon" style="background-color: #ffa426">
-                                    <i class="far fa-user"></i>
-                                </div>
-                                <div class="card-wrap">
-                                    <div class="card-header">
-                                        <h4>Mahasiswa Perempuan</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        {{ $totalMahasiswaPerempuan }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     {{-- LIST MAHASISWA --}}
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4>List Mahasiswa</h4>
-                                </div>
                                 <div class="card-body">
                                     <div class="table table-responsive">
                                         <table class="table-sm table">
@@ -154,7 +104,7 @@
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="10" class="text-center">belum ada data</td>
+                                                        <td colspan="10" class="text-center">data pencarian tidak ada</td>
                                                     </tr>
                                                 @endforelse
                                             </tbody>

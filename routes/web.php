@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// HOME
+// INDEX
 Route::get('/', [Mahasiswa::class, 'index']);
+
+// HOME
+Route::get('/home', [Mahasiswa::class, 'home']);
+Route::get('/pencarian', [Mahasiswa::class, 'pencarian']);
 
 // ADMIN
 Route::get('/admin', [Mahasiswa::class, 'admin']);

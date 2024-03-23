@@ -43,13 +43,13 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a>
+                        <a href="{{ url('/') }}">
                             <span class="brand-text">Demonstrasi</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
                         <li>
-                            <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-fire"></i>
+                            <a class="nav-link" href="{{ url('/home') }}"><i class="fas fa-fire"></i>
                                 <span>Home</span></a>
                         </li>
                         <li class="active">
@@ -57,12 +57,6 @@
                                 <span>Admin</span></a>
                         </li>
                     </ul>
-
-                    <div class="hide-sidebar-mini mt-4 mb-4 p-3">
-                        <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                            <i class="fas fa-rocket"></i> Documentation
-                        </a>
-                    </div>
                 </aside>
             </div>
 
@@ -274,9 +268,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    {{-- {{ $admin->links() }} --}}
                                 </div>
                             </div>
                         </div>

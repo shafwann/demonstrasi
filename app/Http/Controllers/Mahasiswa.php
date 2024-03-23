@@ -9,7 +9,35 @@ class Mahasiswa extends Controller
 {
     public function index()
     {
-        return view('home');
+        return redirect('/home');
+    }
+
+    public function home()
+    {
+        // Mengambil semua data mahasiswa dan diurutkan berdasarkan NIM secara descending
+        $mahasiswa = ModelsMahasiswa::all()->sortByDesc('nim');
+
+        // Menghitung jumlah semua mahasiswa
+        $totalMahasiswa = ModelsMahasiswa::count();
+
+        // Menghitung jumlah mahasiswa laki-laki
+        $totalMahasiswaLaki = ModelsMahasiswa::where('gender', 'L')->count();
+
+        // Menghitung jumlah mahasiswa perempuan
+        $totalMahasiswaPerempuan = ModelsMahasiswa::where('gender', 'P')->count();
+
+        return view('home', ['mahasiswa' => $mahasiswa, 'totalMahasiswa' => $totalMahasiswa, 'totalMahasiswaLaki' => $totalMahasiswaLaki, 'totalMahasiswaPerempuan' => $totalMahasiswaPerempuan]);
+    }
+
+    public function pencarian(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|max:50',
+        ]);
+
+        $mahasiswa = ModelsMahasiswa::where('nama', 'like', '%' . $request->nama . '%')->get();
+
+        return view('pencarian', ['mahasiswa' => $mahasiswa]);
     }
 
     public function admin()
