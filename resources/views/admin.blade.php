@@ -203,7 +203,7 @@
                                             <div>
                                                 <input type="number" class="form-control"
                                                     id="usia{{ $mhs->id }}" name="usia"
-                                                    placeholder="masukkan usia mahasiswa" value="{{ $mhs->nim }}"
+                                                    placeholder="masukkan usia mahasiswa" value="{{ $mhs->usia }}"
                                                     required>
                                             </div>
                                         </div>

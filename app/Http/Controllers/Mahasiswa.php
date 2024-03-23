@@ -101,9 +101,16 @@ class Mahasiswa extends Controller
         try {
             $mahasiswa = ModelsMahasiswa::find($id);
 
+            $request->validate([
+                'nama' => 'required|max:50',
+                'alamat' => 'required',
+                'tgl_lahir' => 'required|date',
+                'gender' => 'required|in:L,P',
+                'usia' => 'required|numeric',
+            ]);
+
             if ($mahasiswa) {
                 $mahasiswa->update([
-                    'nim' => $request->nim,
                     'nama' => $request->nama,
                     'alamat' => $request->alamat,
                     'tgl_lahir' => $request->tgl_lahir,
