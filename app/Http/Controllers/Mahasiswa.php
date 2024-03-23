@@ -31,10 +31,12 @@ class Mahasiswa extends Controller
 
     public function pencarian(Request $request)
     {
+        // Validasi inputan
         $request->validate([
             'nama' => 'required|max:50',
         ]);
 
+        // Mencari mahasiswa berdasarkan nama sama dengan inputan
         $mahasiswa = ModelsMahasiswa::where('nama', 'like', '%' . $request->nama . '%')->get();
 
         return view('pencarian', ['mahasiswa' => $mahasiswa]);
@@ -42,6 +44,7 @@ class Mahasiswa extends Controller
 
     public function admin()
     {
+        // Mengambil semua data mahasiswa dan diurutkan berdasarkan NIM secara descending
         $mahasiswa = ModelsMahasiswa::all()->sortByDesc('nim');
 
         return view('admin', ['mahasiswa' => $mahasiswa]);
@@ -50,6 +53,7 @@ class Mahasiswa extends Controller
     public function tambahMahasiswa(Request $request)
     {
         try {
+            // Validasi inputan
             $request->validate([
                 'nim' => 'required|numeric',
                 'nama' => 'required|max:50',
@@ -59,6 +63,7 @@ class Mahasiswa extends Controller
                 'usia' => 'required|numeric',
             ]);
 
+            // Menambahkan mahasiswa baru
             $mahasiswa = ModelsMahasiswa::create([
                 'nim' => $request->nim,
                 'nama' => $request->nama,
@@ -99,9 +104,11 @@ class Mahasiswa extends Controller
     public function hapusMahasiswa($id)
     {
         try {
+            // Mencari mahasiswa berdasarkan ID
             $mahasiswa = ModelsMahasiswa::find($id);
 
             if ($mahasiswa) {
+                // Menghapus mahasiswa
                 $mahasiswa->delete();
 
                 $pop = [
@@ -127,8 +134,10 @@ class Mahasiswa extends Controller
     public function editMahasiswa($id, Request $request)
     {
         try {
+            // Mencari mahasiswa berdasarkan ID
             $mahasiswa = ModelsMahasiswa::find($id);
 
+            // Validasi inputan
             $request->validate([
                 'nama' => 'required|max:50',
                 'alamat' => 'required',
@@ -138,6 +147,7 @@ class Mahasiswa extends Controller
             ]);
 
             if ($mahasiswa) {
+                // Mengedit mahasiswa
                 $mahasiswa->update([
                     'nama' => $request->nama,
                     'alamat' => $request->alamat,

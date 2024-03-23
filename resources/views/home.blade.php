@@ -39,14 +39,6 @@
                         <div class="search-backdrop"></div>
                     </div>
                 </form>
-                <ul class="navbar-nav navbar-right">
-                    <li class="dropdown"><a class="nav-link nav-link-lg nav-link-user">
-                            <img alt="image" src="{{ asset('stisla/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
-                        </a>
-                    </li>
-                </ul>
             </nav>
 
             <!-- Sidebar -->
